@@ -7,12 +7,20 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ListView lista;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +28,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        lista = findViewById(R.id.lista);
+        ArrayList<String> al = new ArrayList<String>();
+        al.add("1");
+        al.add("2");
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.content_main, al);
+        lista.setAdapter(adapter);
+
+
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
